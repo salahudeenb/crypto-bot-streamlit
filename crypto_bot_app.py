@@ -73,5 +73,6 @@ if run:
     try:
         with st.spinner("Fetching market data..."):
             df = fetch_ohlcv_cached(EXCHANGE_ID, SYMBOL, TIMEFRAME, LIMIT)
-    ex
+    
+    except Exception: pass
                        
