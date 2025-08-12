@@ -5,7 +5,10 @@ import ccxt
 import numpy as np
 from datetime import datetime
 from dotenv import load_dotenv
-import plotly.graph_objects as gofig = go.Figure()
+import plotly.graph_objects as go
+
+fig = go.Figure()
+
 
 fig.add_trace(go.Candlestick(
     x=df['timestamp'],
