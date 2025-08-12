@@ -26,7 +26,7 @@ fig.add_trace(go.Scatter(
     name=f'EMA {FAST_EMA}'
 ))
 
-fig.add_trace(go.Scatter(
+fig.add_trace(go.S
     x=df['timestamp'],
     y=df['ema_slow'],
     line=dict(color='orange', width=1),
