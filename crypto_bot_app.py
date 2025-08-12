@@ -1,27 +1,22 @@
-fig.add_trace(go.Bar(
-    x=df['timestamp'],
-    y=df['volume'],
-    name='Volume',
-    marker_color='lightgray',
-    yaxis='y2',
-    opacity=0.3,
-))
+import os
+import streamlit as st
+import pandas as pd
+import ccxt
+import numpy as np
+from datetime import datetime
+from dotenv import load_dotenv
+import plotly.graph_objects as go
 
-# Update layout to add volume y-axis
-fig.update_layout(
-    xaxis_rangeslider_visible=False,
-    yaxis_title='Price',
-    yaxis2=dict(
-        title='Volume',
-        overlaying='y',
-        side='right',
-        showgrid=False,
-        position=0.15,
-        range=[0, df['volume'].max() * 5]  # adjust range for visibility
-    ),
-    legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1),
-    margin=dict(l=40, r=40, t=40, b=40),
-    height=500,
-)
+load_dotenv()
 
-st.plotly_chart(fig, use_container_width=True)
+st.set_page_config(page_title="Crypto Bot with Charts", layout="wide")
+st.title("Crypto Trading Bot with Candlestick Chart")
+
+# Sidebar - User inputs
+st.sidebar.header("Settings")
+EXCHANGE_ID = st.sidebar.selectbox("Exchange", ["binance", "kraken", "coinbasepro"], index=0)
+SYMBOL = st.sidebar.text_input("Trading Pair", value="BTC/USDT")
+TIMEFRAME = st.sidebar.selectbox("Timeframe", ["1m", "5m", "15m", "1h", "4h", "1d"], index=1)
+FAST_EMA = st.sidebar.number_input("Fast EMA", min_value=1, value=9)
+SLOW_EMA = st.sidebar.number_input("Slow EMA", min_value=1, value=21)
+LIMIT = st.sidebar.slider("Data points l
