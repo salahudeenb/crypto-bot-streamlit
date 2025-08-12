@@ -19,4 +19,6 @@ SYMBOL = st.sidebar.text_input("Trading Pair", value="BTC/USDT")
 TIMEFRAME = st.sidebar.selectbox("Timeframe", ["1m", "5m", "15m", "1h", "4h", "1d"], index=1)
 FAST_EMA = st.sidebar.number_input("Fast EMA", min_value=1, value=9)
 SLOW_EMA = st.sidebar.number_input("Slow EMA", min_value=1, value=21)
-LIMIT = st.sidebar.slider("Data points l
+FAST_EMA = st.sidebar.number_input("Fast EMA", min_value=1, value=9)
+SLOW_EMA = st.sidebar.number_input("Slow EMA", min_value=1, value=21)
+LIMIT = st.sidebar.slider("Data points limit", 50, 1000, 200, 50)
