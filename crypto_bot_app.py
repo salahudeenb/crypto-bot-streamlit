@@ -1,4 +1,11 @@
-fig = go.Figure()
+ import os
+import streamlit as st
+import pandas as pd
+import ccxt
+import numpy as np
+from datetime import datetime
+from dotenv import load_dotenv
+import plotly.graph_objects as gofig = go.Figure()
 
 fig.add_trace(go.Candlestick(
     x=df['timestamp'],
